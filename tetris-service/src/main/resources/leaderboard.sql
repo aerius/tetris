@@ -6,6 +6,3 @@ CREATE TABLE leaderboard (
   score INT NOT NULL,
   date DATE NOT NULL
 );
-
-INSERT INTO leaderboard (name, score, date) VALUES
-  ('Stikstofje', 9600, PARSEDATETIME('2020-04-20', 'yyyy-MM-dd'));
