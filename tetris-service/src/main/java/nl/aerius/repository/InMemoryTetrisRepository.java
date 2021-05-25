@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import nl.aerius.util.TetrisUtil;
 
 @Component
 @Profile("dev")
+@Primary
 public class InMemoryTetrisRepository implements TetrisRepository {
   private final List<TetrisScore> leaderboard = new ArrayList<>();
 

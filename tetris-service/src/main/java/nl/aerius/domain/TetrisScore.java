@@ -2,9 +2,17 @@ package nl.aerius.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+@Entity
+@Table(name = "leaderboard")
 public class TetrisScore {
+  @Id private long id;
+
   private String name;
   private int score;
   private Date date;
@@ -32,5 +40,13 @@ public class TetrisScore {
 
   public void setDate(final Date date) {
     this.date = date;
+  }
+
+  public long getId() {
+    return id;
+  }
+
+  public void setId(final long id) {
+    this.id = id;
   }
 }

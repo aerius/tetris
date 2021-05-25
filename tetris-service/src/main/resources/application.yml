@@ -1,3 +1,16 @@
 server:
   port: 8090
   
+spring:
+  datasource:
+    url: jdbc:h2:mem:tetris-leaderboard
+    #url: jdbc:h2:file:/tmp/tetris-leaderboard
+    
+    driverClassName: org.h2.Driver
+    username: username
+    password: password
+    database-platform: org.hibernate.dialect.H2Dialect
+    
+  h2:
+    console:
+      enabled: true
