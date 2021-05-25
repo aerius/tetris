@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS leaderboard;
-
-CREATE TABLE leaderboard (
-  id INT AUTO_INCREMENT  PRIMARY KEY,
-  name VARCHAR(250) NOT NULL,
-  score INT NOT NULL,
-  date DATE NOT NULL
-);

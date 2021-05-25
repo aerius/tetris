@@ -3,6 +3,7 @@ package nl.aerius.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "leaderboard")
 public class TetrisScore {
-  @Id private long id;
+  @Id
+  @GeneratedValue
+  private long id;
 
   private String name;
   private int score;

@@ -1,3 +1,3 @@
 cd ..
 
-mvn spring-boot:run -Dspring-boot.run.profiles=dev -pl :tetris-service
+mvn spring-boot:run -pl :tetris-service

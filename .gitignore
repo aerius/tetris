@@ -28,6 +28,7 @@ Thumbs.db
 
 # Development files  #
 ######################
+*/config/*
 # Excluded folders used for local configuration in development  
 */src/test/config/
 # added META-INF directory to work around bug when running stash -u, which deletes this directory.
@@ -36,7 +37,6 @@ Thumbs.db
 *.bat
 *.rb
 *.factorypath
-*monitorup_dev.properties
 dependency-reduced-pom.xml
 
 # Eclipse files      #

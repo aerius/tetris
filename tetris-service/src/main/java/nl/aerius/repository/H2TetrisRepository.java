@@ -18,7 +18,7 @@ public class H2TetrisRepository implements TetrisRepository {
   @Transactional
   public List<TetrisScore> getLeaderboard() {
     return entityManager.createQuery("FROM TetrisScore "
-        + "ORDER BY score DESC", TetrisScore.class)
+        + "ORDER BY score DESC, date ASC", TetrisScore.class)
         .setMaxResults(10)
         .getResultList();
   }

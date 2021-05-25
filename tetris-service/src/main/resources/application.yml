@@ -3,14 +3,9 @@ server:
   
 spring:
   datasource:
-    url: jdbc:h2:mem:tetris-leaderboard
-    #url: jdbc:h2:file:/tmp/tetris-leaderboard
+    #url: jdbc:h2:file:~/data/tetris-leaderboard
     
     driverClassName: org.h2.Driver
-    username: username
-    password: password
+    username: aerius
+    password: aerius
     database-platform: org.hibernate.dialect.H2Dialect
-    
-  h2:
-    console:
-      enabled: true
