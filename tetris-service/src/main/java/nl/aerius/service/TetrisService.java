@@ -30,12 +30,12 @@ public class TetrisService {
   }
 
   @PostMapping(value = "/api/submit")
-  public List<TetrisScore> submitScore(final String name, final int[] score, final String challenge) throws ChallengeFailedException {
+  public List<TetrisScore> submitScore(final String name, final int[] score, final String token) throws ChallengeFailedException {
     final int scoreNum = TetrisUtil.calculateScore(score);
 
-    LOG.info("Submitting score {} {} ({}) {}", name, score, scoreNum, challenge);
+    LOG.info("Submitting score {} {} ({}) {}", name, score, scoreNum, token);
 
-    challenger.validate(challenge);
+    challenger.validate(token);
 
     final TetrisScore tetrisScore = new TetrisScore();
     tetrisScore.setName(name);

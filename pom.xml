@@ -49,12 +49,10 @@
     </snapshotRepository>
   </distributionManagement>
 
-  <!--
   <scm>
-    <connection>scm:git:ssh://git@github.com:aerius/gwt-client-common.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com:aerius/gwt-client-common.git</developerConnection>
+    <connection>scm:git:ssh://git@github.com:aerius/tetris.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:aerius/tetris.git</developerConnection>
   </scm>
-  -->
 
   <repositories>
     <repository>
@@ -80,23 +78,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>11</java.version>
 
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
   </properties>
-
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>${maven.compiler.plugin.version}</version>
-          <configuration>
-            <source>${java.version}</source>
-            <target>${java.version}</target>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
 
   <profiles>
     <profile>
