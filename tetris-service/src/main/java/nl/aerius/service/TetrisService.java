@@ -1,9 +1,9 @@
 package nl.aerius.service;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,8 +48,8 @@ public class TetrisService {
     final TetrisScore tetrisScore = new TetrisScore();
     tetrisScore.setName(name);
     tetrisScore.setScore(scoreNum);
-    tetrisScore.setLines(Stream.of(score)
-        .map(v -> String.valueOf(v))
+    tetrisScore.setLines(Arrays.stream(score)
+        .mapToObj(v -> String.valueOf(v))
         .collect(Collectors.joining(",")));
     tetrisScore.setDate(new Date());
 

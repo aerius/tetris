@@ -2,6 +2,10 @@ server:
   port: 8090
   
 spring:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
   datasource:
     #url: jdbc:h2:file:~/data/tetris-leaderboard
     
@@ -9,4 +13,3 @@ spring:
     username: aerius
     password: aerius
     database-platform: org.hibernate.dialect.H2Dialect
-    initialization-mode: always
