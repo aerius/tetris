@@ -1,6 +1,5 @@
 package nl.aerius.wui.easter.service;
 
-import java.util.Date;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
@@ -32,7 +31,6 @@ public class TetrisServiceAsyncImpl implements TetrisServiceAsync {
 
     final FormData data = new FormData();
     data.append("name", score.getName());
-    data.append("date", String.valueOf(new Date().getTime()));
     data.append("clientScore", String.valueOf(score.getScoreNumber()));
     data.append("score", score.getScore().stream()
         .map(v -> String.valueOf(v))
