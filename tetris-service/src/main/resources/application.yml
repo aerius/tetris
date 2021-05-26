@@ -5,7 +5,7 @@ spring:
   jpa:
     generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   datasource:
     #url: jdbc:h2:file:~/data/tetris-leaderboard
     
