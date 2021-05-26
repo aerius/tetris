@@ -9,3 +9,4 @@ spring:
     username: aerius
     password: aerius
     database-platform: org.hibernate.dialect.H2Dialect
+    initialization-mode: always

@@ -2,6 +2,8 @@ package nl.aerius.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,8 +32,14 @@ public class TetrisService {
   }
 
   @PostMapping(value = "/api/submit")
-  public List<TetrisScore> submitScore(final String name, final int[] score, final String token) throws ChallengeFailedException {
+  public List<TetrisScore> submitScore(final String name, final int[] score, final int clientScore, final String token)
+      throws ChallengeFailedException {
     final int scoreNum = TetrisUtil.calculateScore(score);
+
+    // Sanity check for the client's score calculation
+    if (clientScore != scoreNum) {
+      throw new ChallengeFailedException();
+    }
 
     LOG.info("Submitting score {} {} ({}) {}", name, score, scoreNum, token);
 
@@ -40,6 +48,9 @@ public class TetrisService {
     final TetrisScore tetrisScore = new TetrisScore();
     tetrisScore.setName(name);
     tetrisScore.setScore(scoreNum);
+    tetrisScore.setLines(Stream.of(score)
+        .map(v -> String.valueOf(v))
+        .collect(Collectors.joining(",")));
     tetrisScore.setDate(new Date());
 
     tetrisRepository.submitScore(tetrisScore);

@@ -18,6 +18,7 @@ public class TetrisScore {
 
   private String name;
   private int score;
+  private String lines;
   private Date date;
 
   public String getName() {
@@ -51,5 +52,13 @@ public class TetrisScore {
 
   public void setId(final long id) {
     this.id = id;
+  }
+
+  public String getLines() {
+    return lines;
+  }
+
+  public void setLines(final String lines) {
+    this.lines = lines;
   }
 }
