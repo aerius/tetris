@@ -1,22 +1,23 @@
 <!--
 
-    Copyright the State of the Netherlands
+  Copyright the State of the Netherlands
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see http://www.gnu.org/licenses/.
+  You should have received a copy of the GNU Affero General Public License
+  along with this program. If not, see http://www.gnu.org/licenses/.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>nl.aerius</groupId>
@@ -81,8 +82,81 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
 
+    <gwt-client-common.version>1.1-SNAPSHOT</gwt-client-common.version>
+    <common-json.version>1.1-SNAPSHOT</common-json.version>
+
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>nl.aerius</groupId>
+        <artifactId>gwt-client-geo</artifactId>
+        <version>${gwt-client-common.version}</version>
+        <type>gwt-lib</type>
+      </dependency>
+      <dependency>
+        <groupId>nl.aerius</groupId>
+        <artifactId>gwt-client-geo-ol3</artifactId>
+        <version>${gwt-client-common.version}</version>
+        <type>gwt-lib</type>
+      </dependency>
+
+      <dependency>
+        <groupId>nl.aerius</groupId>
+        <artifactId>gwt-client-vue</artifactId>
+        <version>${gwt-client-common.version}</version>
+        <type>gwt-lib</type>
+      </dependency>
+
+      <dependency>
+        <groupId>nl.aerius</groupId>
+        <artifactId>gwt-client-common-json</artifactId>
+        <version>${common-json.version}</version>
+        <type>gwt-lib</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.2.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>3.2.4</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven.compiler.plugin.version}</version>
+          <configuration>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>net.ltgt.gwt.maven</groupId>
+          <artifactId>gwt-maven-plugin</artifactId>
+          <version>1.0.0</version>
+          <extensions>true</extensions>
+          <configuration>
+            <sourceLevel>${java.version}</sourceLevel>
+            <failOnError>true</failOnError>
+            <codeserverArgs>
+              <arg>-generateJsInteropExports</arg>
+            </codeserverArgs>
+            <compilerArgs>
+              <arg>-generateJsInteropExports</arg>
+            </compilerArgs>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 
   <profiles>
     <profile>
@@ -92,6 +166,7 @@
       </activation>
       <modules>
         <module>tetris-service</module>
+        <module>tetris-client</module>
       </modules>
     </profile>
   </profiles>

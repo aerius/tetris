@@ -1,0 +1,169 @@
+<vue-gwt:import class="nl.aerius.wui.easter.service.TetrisScore" />
+
+<div class="container"
+  :class='map("veil", leaderboardShowing)'>
+  <div ref="board" v-show="leaderboardShowing"
+    class="leaderboard">
+    <h1>AERIUS Tetris Leaderboard</h1>
+    <div v-if="scorer != null"
+      class="score">
+      <div class="line">Score: <em>{{ scorer.getScore() }}</em></div>
+      <!--
+      <div>Level: <em>{{ scorer.getLevel() }}</em></div> 
+      <div>Rijen: <em>{{ scorer.getLineClears() }}</em></div>
+       -->
+    </div>
+    <p v-if="hasEligibleScore">
+      <!-- Notify victory -->
+    </p>
+    <div class="table">
+      <div class="column header idx">#</div>
+      <div class="column header">Naam</div>
+      <div class="column header">Score</div>
+      <div class="column header">Datum</div>
+      <template v-for="(TetrisScore score, index) in leaderboard">
+        <template v-if="isEligibleScore(score, index)">
+          <div class="column idx">{{ index + 1 }}</div>
+          <div class="column name inp">
+            <input placeholder="Uw naam hier!"
+              v-model="name"
+              ref="nameElement"
+              @keydown.enter="submit(name)">
+          </div>
+          <div class="column score">{{ scorer.getScore() }}</div>
+          <div class="column date">NU</div>
+        </template>
+        <div class="column idx">{{ index + 1 + getIndexMod(index) }}</div>
+        <div class="column name">{{ score.name }}</div>
+        <div class="column score">{{ score.score }}</div>
+        <div class="column date">{{ score.date }}</div>
+      </template>
+      
+      <template v-if="isEligibleScoreFallback()">
+        <div class="column idx">{{ leaderboard.size() + 1 }}</div>
+        <div class="column name inp">
+          <input placeholder="Uw naam hier!"
+            v-model="nameFallback"
+            ref="nameFallbackElement"
+            @keydown.enter="submit(nameFallback)">
+        </div>
+        <div class="column score">{{ scorer.getScore() }}</div>
+        <div class="column date">NU</div>
+      </template>
+    </div>
+    
+    <div
+      class="close"
+      v-debug='(String) "notification-close"'
+      @click="close()">X</div>
+  </div>
+</div>
+
+<style scoped lang="scss">
+.score {
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  
+  .line {
+    display: flex;
+    align-items: center;
+
+    em {
+      font-size: 1.5em;
+      padding: 0px 10px;
+    }
+  }
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: #ffffff00;
+  
+  pointer-events: none;
+  
+  &.veil {
+    background: #ffffffcc;
+  }
+}
+
+.leaderboard {
+  pointer-events: all;
+  width: 550px;
+  background: #fff;
+  padding: 20px;
+  border: 10px dashed teal;
+  
+  box-shadow: 0px 0px 50px green;
+  transition: all 0.15s ease-out;
+  
+  position: relative;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: auto 4fr auto auto;
+  grid-auto-rows: auto;
+}
+
+.header {
+  background: #f5f5f5;
+}
+
+.column {
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.inp {
+  padding: 0px;
+  display: flex;
+  
+  input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 5px solid black;
+    transition: all 0.15s ease-out;
+  }
+}
+
+.idx {
+  text-align: right;
+}
+
+h1 {
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+  transition: all 0.15s ease-out;
+  
+  svg {
+    width: 12px;
+  }
+  
+  &:hover {
+    fill: var(--theme-color);
+  }
+}
+</style>
