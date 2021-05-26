@@ -140,7 +140,7 @@ public class TetrisLeaderboardComponent implements IsVueComponent, HasCreated {
 
   @JsMethod
   public void submit(final String name) {
-    final TetrisScoreSubmission submission = new TetrisScoreSubmission(name, scorer.getLines());
+    final TetrisScoreSubmission submission = new TetrisScoreSubmission(name, scorer.getScore(), scorer.getLines());
 
     eventBus.fireEvent(new SubmitTetrisScoreCommand(submission));
     scorer = null;
