@@ -169,5 +169,12 @@
         <module>tetris-client</module>
       </modules>
     </profile>
+    <profile>
+      <id>publish</id>
+      <modules>
+        <module>tetris-client</module>
+      </modules>
+    </profile>
   </profiles>
+
 </project>
