@@ -36,4 +36,4 @@ jobs:
           server_id: aerius-nexus
           nexus_username: ${{ secrets.nexus_username }}
           nexus_password: ${{ secrets.nexus_password }}
-          maven_args: -DskipTests -P publish
+          maven_args: -DskipTests --no-transfer-progress -P publish
