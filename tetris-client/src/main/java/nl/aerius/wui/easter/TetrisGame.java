@@ -8,7 +8,6 @@ import ol.layer.Vector;
 
 import nl.aerius.geo.domain.Point;
 import nl.aerius.geo.epsg.ReceptorGridSettings;
-import nl.aerius.wui.dev.GWTProd;
 import nl.aerius.wui.easter.game.TetrisArena;
 import nl.aerius.wui.easter.game.TetrisGameControls;
 import nl.aerius.wui.easter.game.TetrisGameEngine;
@@ -69,14 +68,11 @@ public class TetrisGame {
     // If a game already exists, destroy it
     destroy();
     
-    GWTProd.log("Starting new game.");
-
     game = new TetrisGame(olMap, grid, eventBus);
     olMap.addLayer(game.getLayer());
   }
 
   public static void destroy() {
-    GWTProd.log("Destroying");
     if (game != null) {
       game.internalDestroy();
       game = null;
@@ -84,7 +80,6 @@ public class TetrisGame {
   }
 
   private void internalDestroy() {
-    GWTProd.log("Internal destroy");
     map.removeLayer(layer);
     engine.destroy();
   }

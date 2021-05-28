@@ -1,7 +1,5 @@
 package nl.aerius.wui.easter;
 
-
-
 import ol.Extent;
 import ol.Feature;
 import ol.Map;
@@ -42,7 +40,7 @@ public class TetrisUtil {
     layer.addFeatures(HexagonPath.builder(grid)
         .sequence(v -> TetrisShapes.arena(v, arena))
         .features());
-    
+
     return arena;
   }
 
