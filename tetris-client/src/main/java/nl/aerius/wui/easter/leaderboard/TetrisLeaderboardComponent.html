@@ -1,6 +1,6 @@
 <vue-gwt:import class="nl.aerius.wui.easter.service.TetrisScore" />
 
-<div class="container"
+<div class="tetrisContainer"
   :class='map("veil", leaderboardShowing)'>
   <div ref="board" v-show="leaderboardShowing"
     class="leaderboard">
@@ -76,7 +76,7 @@
   }
 }
 
-.container {
+.tetrisContainer {
   width: 100vw;
   height: 100vh;
   position: fixed;
