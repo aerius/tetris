@@ -53,7 +53,7 @@ public class EasterUtil {
     }
 
     public int getCount() {
-      return Math.min(0, LIMIT - logoClickCounter);
+      return Math.max(0, LIMIT - logoClickCounter);
     }
   }
 }
