@@ -7,11 +7,13 @@ import elemental2.dom.HTMLElement;
 import nl.aerius.wui.util.SchedulerUtil;
 
 public class EasterUtil {
-  public static void attachTo(final HTMLElement element, final EventBus eventBus) {
-    new EasterAttachment(element, eventBus);
+  public static EasterAttachment attachTo(final HTMLElement element, final EventBus eventBus) {
+    return new EasterAttachment(element, eventBus);
   }
 
-  private static class EasterAttachment {
+  public static class EasterAttachment {
+    private static final int LIMIT = 3;
+
     private final EventBus eventBus;
 
     private boolean logoClickCounterResetScheduled;
@@ -27,7 +29,7 @@ public class EasterUtil {
 
     private void onClick() {
       logoClickCounter++;
-      if (logoClickCounter == 3) {
+      if (logoClickCounter == LIMIT) {
         logoClickCounter = 0;
         eventBus.fireEvent(new ActivateEasterEggCommand());
         logoClickCounterResetScheduled = false;
@@ -48,6 +50,10 @@ public class EasterUtil {
         logoClickCounter = 0;
         logoClickCounterResetScheduled = false;
       }, 500);
+    }
+
+    public int getCount() {
+      return Math.min(0, LIMIT - logoClickCounter);
     }
   }
 }
