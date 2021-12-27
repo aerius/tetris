@@ -1,6 +1,5 @@
 package nl.aerius.wui.easter;
 
-
 import com.google.web.bindery.event.shared.EventBus;
 
 import ol.Map;
@@ -28,12 +27,11 @@ public class TetrisGame {
 
   private final Map map;
 
-  public TetrisGame(final Map map, final ReceptorGridSettings grid, final EventBus eventBus) {
+  public TetrisGame(final Map map, final ReceptorGridSettings grid, final EventBus eventBus, final Point origin) {
     this.map = map;
     layer = new TetrisVectorLayer();
     util = new TetrisUtil(grid);
 
-    final Point origin = new Point(133330, 486354);
     final TetrisArena arena = util.decorateTerrain(layer, origin);
     util.fit(map, arena);
 
@@ -64,11 +62,11 @@ public class TetrisGame {
     return layer;
   }
 
-  public static void go(final Map olMap, final ReceptorGridSettings grid, final EventBus eventBus) {
+  public static void go(final Map olMap, final ReceptorGridSettings grid, final EventBus eventBus, final Point origin) {
     // If a game already exists, destroy it
     destroy();
-    
-    game = new TetrisGame(olMap, grid, eventBus);
+
+    game = new TetrisGame(olMap, grid, eventBus, origin);
     olMap.addLayer(game.getLayer());
   }
 

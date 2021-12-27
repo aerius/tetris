@@ -13,7 +13,6 @@ import ol.format.Wkt;
 import ol.format.WktReadOptions;
 import ol.style.Style;
 
-import nl.aerius.wui.easter.domain.InformationZoomLevel;
 import nl.aerius.wui.easter.domain.ReceptorPoint;
 import nl.aerius.wui.easter.util.EasterGeoUtil;
 import nl.aerius.wui.util.MathUtil;
@@ -396,7 +395,7 @@ public final class HexagonPath {
   }
 
   public Feature createHexagon(final ReceptorPoint receptor) {
-    final String hexagonWKT = EasterGeoUtil.createHexagonWkt(receptor, InformationZoomLevel.get());
+    final String hexagonWKT = EasterGeoUtil.createHexagonWkt(receptor, grid.getZoomLevel1());
     final Wkt wkt = new Wkt();
     final WktReadOptions wktOptions = OLFactory.createOptions();
     return wkt.readFeature(hexagonWKT, wktOptions);

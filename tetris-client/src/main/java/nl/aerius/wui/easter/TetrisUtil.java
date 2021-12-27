@@ -7,7 +7,6 @@ import ol.OLFactory;
 import ol.format.Wkt;
 import ol.format.WktReadOptions;
 
-import nl.aerius.wui.easter.domain.InformationZoomLevel;
 import nl.aerius.wui.easter.domain.ReceptorPoint;
 import nl.aerius.wui.easter.game.HexagonPath;
 import nl.aerius.wui.easter.game.TetrisArena;
@@ -47,7 +46,7 @@ public class TetrisUtil {
   public Feature createHexagon(final Point value) {
     final ReceptorPoint receptor = EasterGeoUtil.getReceptorFromPoint(recUtil, value);
 
-    final String hexagonWKT = EasterGeoUtil.createHexagonWkt(receptor, InformationZoomLevel.get());
+    final String hexagonWKT = EasterGeoUtil.createHexagonWkt(receptor, grid.getZoomLevel1());
     final Wkt wkt = new Wkt();
     final WktReadOptions wktOptions = OLFactory.createOptions();
     return wkt.readFeature(hexagonWKT, wktOptions);
