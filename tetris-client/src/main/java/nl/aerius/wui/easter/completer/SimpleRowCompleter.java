@@ -6,15 +6,15 @@ import java.util.stream.Collectors;
 
 import ol.Feature;
 
-import nl.aerius.geo.domain.ReceptorPoint;
-import nl.aerius.geo.epsg.ReceptorGridSettings;
 import nl.aerius.wui.dev.GWTProd;
+import nl.aerius.wui.easter.domain.ReceptorPoint;
 import nl.aerius.wui.easter.game.HexagonPath;
 import nl.aerius.wui.easter.game.TetrisArena;
 import nl.aerius.wui.easter.game.TetrisScorer;
 import nl.aerius.wui.easter.game.TetrisVectorLayer;
 import nl.aerius.wui.util.GWTAtomicInteger;
 import nl.aerius.wui.util.SchedulerUtil;
+import nl.overheid.aerius.shared.domain.geo.ReceptorGridSettings;
 
 public abstract class SimpleRowCompleter implements TetrisRowCompletion {
   protected ReceptorGridSettings grid;

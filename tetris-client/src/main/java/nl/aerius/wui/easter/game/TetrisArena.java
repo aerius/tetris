@@ -1,6 +1,6 @@
 package nl.aerius.wui.easter.game;
 
-import nl.aerius.geo.domain.ReceptorPoint;
+import nl.aerius.wui.easter.domain.ReceptorPoint;
 
 public class TetrisArena {
   private final ReceptorPoint origin;

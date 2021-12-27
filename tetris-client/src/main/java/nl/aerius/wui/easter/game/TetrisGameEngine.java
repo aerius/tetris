@@ -11,10 +11,10 @@ import com.google.gwt.user.client.Timer;
 
 import ol.Feature;
 
-import nl.aerius.geo.domain.ReceptorPoint;
-import nl.aerius.geo.epsg.ReceptorGridSettings;
 import nl.aerius.wui.easter.completer.HardRowCompleter;
 import nl.aerius.wui.easter.completer.TetrisRowCompletion;
+import nl.aerius.wui.easter.domain.ReceptorPoint;
+import nl.overheid.aerius.shared.domain.geo.ReceptorGridSettings;
 
 public class TetrisGameEngine {
   private final ReceptorGridSettings grid;

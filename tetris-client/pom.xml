@@ -11,18 +11,6 @@
 
   <packaging>gwt-lib</packaging>
   
-  <repositories>
-    <!-- Using a patch repo on github containing unreleased patches, can be removed when release with patches is available -->
-    <repository>
-      <id>vue-gwt-aerius-patch-repo</id>
-      <url>https://raw.github.com/JornC/vue-gwt/aerius-patch-repo/</url>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-    </repository>
-  </repositories>
-  
   <properties>
     <com.google.gwt.version>2.8.2</com.google.gwt.version>
     <vue.version>1.0-beta-10-AERIUS</vue.version>
@@ -44,12 +32,23 @@
     
     <dependency>
       <groupId>nl.aerius</groupId>
-      <artifactId>gwt-client-geo</artifactId>
+      <artifactId>imaer-shared</artifactId>
+      <version>${imaer.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>nl.aerius</groupId>
+      <artifactId>gwt-client-common</artifactId>
       <type>gwt-lib</type>
     </dependency>
     <dependency>
       <groupId>nl.aerius</groupId>
-      <artifactId>gwt-client-geo-ol3</artifactId>
+      <artifactId>gwt-client-common-json</artifactId>
+      <type>gwt-lib</type>
+    </dependency>
+    <dependency>
+      <groupId>com.github.tdesjardins</groupId>
+      <artifactId>gwt-ol3</artifactId>
+      <version>7.2.0</version>
       <type>gwt-lib</type>
     </dependency>
     
@@ -63,12 +62,6 @@
       <artifactId>vue-gwt-processors</artifactId>
       <version>${vue.version}</version>
       <optional>true</optional>
-    </dependency>
-    
-    <dependency>
-      <groupId>nl.aerius</groupId>
-      <artifactId>gwt-client-common-json</artifactId>
-      <type>gwt-lib</type>
     </dependency>
 
     <dependency>

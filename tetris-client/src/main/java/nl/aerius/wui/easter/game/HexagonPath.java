@@ -13,12 +13,12 @@ import ol.format.Wkt;
 import ol.format.WktReadOptions;
 import ol.style.Style;
 
-import nl.aerius.geo.domain.InformationZoomLevel;
-import nl.aerius.geo.domain.ReceptorPoint;
-import nl.aerius.geo.epsg.ReceptorGridSettings;
-import nl.aerius.geo.util.HexagonUtil;
-import nl.aerius.geo.util.ReceptorUtil;
+import nl.aerius.wui.easter.domain.InformationZoomLevel;
+import nl.aerius.wui.easter.domain.ReceptorPoint;
+import nl.aerius.wui.easter.util.EasterGeoUtil;
 import nl.aerius.wui.util.MathUtil;
+import nl.overheid.aerius.shared.domain.geo.ReceptorGridSettings;
+import nl.overheid.aerius.shared.geometry.ReceptorUtil;
 
 public final class HexagonPath {
   private final ReceptorUtil recUtil;
@@ -121,7 +121,7 @@ public final class HexagonPath {
   }
 
   public HexagonPath point(final int id) {
-    return point(recUtil.createReceptorPointFromId(id));
+    return point(EasterGeoUtil.getReceptorFromId(recUtil, id));
   }
 
   public HexagonPath remember() {
@@ -140,7 +140,7 @@ public final class HexagonPath {
   }
 
   public HexagonPath move(final int id) {
-    return move(recUtil.createReceptorPointFromId(id));
+    return move(EasterGeoUtil.getReceptorFromId(recUtil, id));
   }
 
   public HexagonPath move(final ReceptorPoint pointer) {
@@ -396,7 +396,7 @@ public final class HexagonPath {
   }
 
   public Feature createHexagon(final ReceptorPoint receptor) {
-    final String hexagonWKT = HexagonUtil.createHexagonWkt(receptor, InformationZoomLevel.get());
+    final String hexagonWKT = EasterGeoUtil.createHexagonWkt(receptor, InformationZoomLevel.get());
     final Wkt wkt = new Wkt();
     final WktReadOptions wktOptions = OLFactory.createOptions();
     return wkt.readFeature(hexagonWKT, wktOptions);

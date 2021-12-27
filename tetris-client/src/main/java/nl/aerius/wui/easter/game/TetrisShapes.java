@@ -3,7 +3,7 @@ package nl.aerius.wui.easter.game;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.aerius.geo.domain.ReceptorPoint;
+import nl.aerius.wui.easter.domain.ReceptorPoint;
 
 public class TetrisShapes {
   public static final TetrisShape HEX = path -> path
