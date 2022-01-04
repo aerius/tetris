@@ -100,6 +100,10 @@ public class TetrisGameEngine {
     loop.scheduleRepeating(period);
   }
 
+  public boolean isPlaying() {
+    return loop.isRunning();
+  }
+
   private void performGameCycle() {
     // Move tetromino pointer location down by one
     tetrominoLocation = HexagonPath.builder(grid, tetrominoLocation)

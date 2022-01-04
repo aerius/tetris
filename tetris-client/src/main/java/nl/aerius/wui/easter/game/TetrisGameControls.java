@@ -4,9 +4,9 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
 
-import jsinterop.base.Js;
-
 import elemental2.dom.KeyboardEvent;
+
+import jsinterop.base.Js;
 
 public class TetrisGameControls {
   private final TetrisGameEngine engine;
@@ -20,6 +20,10 @@ public class TetrisGameControls {
   }
 
   private void handleKey(final KeyboardEvent e, final int keyCode) {
+    if (!engine.isPlaying()) {
+      return;
+    }
+
     final Element elem = Js.cast(e.target);
     final String tag = elem.getTagName().toLowerCase();
     if (isInput(tag)) {
