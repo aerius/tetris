@@ -44,13 +44,13 @@ public class TetrisGame {
     TetrisGameControls.attach(engine);
 
     SchedulerUtil.delay(() -> {
-      NotificationUtil.broadcastMessage(eventBus, "Tetris ronde begint in 3..");
+      NotificationUtil.broadcastMessage(eventBus, "Tetris in 3..");
     }, 1000);
     SchedulerUtil.delay(() -> {
-      NotificationUtil.broadcastMessage(eventBus, "Tetris ronde begint in 2..");
+      NotificationUtil.broadcastMessage(eventBus, "Tetris in 2..");
     }, 2000);
     SchedulerUtil.delay(() -> {
-      NotificationUtil.broadcastMessage(eventBus, "Tetris ronde begint in 1..");
+      NotificationUtil.broadcastMessage(eventBus, "Tetris in 1..");
     }, 3000);
     SchedulerUtil.delay(() -> {
       eventBus.fireEvent(new TetrisGameStartEvent());
@@ -60,6 +60,10 @@ public class TetrisGame {
 
   private Vector getLayer() {
     return layer;
+  }
+  
+  public static boolean isPlaying() {
+    return game != null;
   }
 
   public static void go(final Map olMap, final ReceptorGridSettings grid, final EventBus eventBus, final Point origin) {
