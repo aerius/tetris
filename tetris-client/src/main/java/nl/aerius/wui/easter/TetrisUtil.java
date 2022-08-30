@@ -7,6 +7,7 @@ import ol.OLFactory;
 import ol.format.Wkt;
 import ol.format.WktReadOptions;
 
+import nl.aerius.shared.domain.geojson.Point;
 import nl.aerius.wui.easter.domain.ReceptorPoint;
 import nl.aerius.wui.easter.game.HexagonPath;
 import nl.aerius.wui.easter.game.TetrisArena;
@@ -14,7 +15,6 @@ import nl.aerius.wui.easter.game.TetrisShapes;
 import nl.aerius.wui.easter.game.TetrisVectorLayer;
 import nl.aerius.wui.easter.util.EasterGeoUtil;
 import nl.overheid.aerius.shared.domain.geo.ReceptorGridSettings;
-import nl.overheid.aerius.shared.domain.v2.geojson.Point;
 import nl.overheid.aerius.shared.geometry.ReceptorUtil;
 
 /**

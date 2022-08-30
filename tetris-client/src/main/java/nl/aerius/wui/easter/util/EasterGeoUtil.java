@@ -3,11 +3,11 @@ package nl.aerius.wui.easter.util;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import nl.aerius.shared.domain.geojson.Point;
+import nl.aerius.shared.domain.geojson.Polygon;
 import nl.aerius.wui.easter.domain.ReceptorPoint;
 import nl.overheid.aerius.shared.domain.geo.HexagonUtil;
 import nl.overheid.aerius.shared.domain.geo.HexagonZoomLevel;
-import nl.overheid.aerius.shared.domain.v2.geojson.Point;
-import nl.overheid.aerius.shared.domain.v2.geojson.Polygon;
 import nl.overheid.aerius.shared.geometry.ReceptorUtil;
 
 public final class EasterGeoUtil {

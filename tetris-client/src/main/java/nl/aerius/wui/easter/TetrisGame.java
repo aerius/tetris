@@ -5,6 +5,7 @@ import com.google.web.bindery.event.shared.EventBus;
 import ol.Map;
 import ol.layer.Vector;
 
+import nl.aerius.shared.domain.geojson.Point;
 import nl.aerius.wui.easter.game.TetrisArena;
 import nl.aerius.wui.easter.game.TetrisGameControls;
 import nl.aerius.wui.easter.game.TetrisGameEngine;
@@ -15,7 +16,6 @@ import nl.aerius.wui.easter.game.TetrisVectorLayer;
 import nl.aerius.wui.util.NotificationUtil;
 import nl.aerius.wui.util.SchedulerUtil;
 import nl.overheid.aerius.shared.domain.geo.ReceptorGridSettings;
-import nl.overheid.aerius.shared.domain.v2.geojson.Point;
 
 public class TetrisGame {
   private static TetrisGame game;
