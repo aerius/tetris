@@ -16,10 +16,10 @@
  */
 package nl.aerius.wui.easter.domain;
 
-import nl.aerius.wui.util.HasId;
+import nl.overheid.aerius.shared.domain.HasId;
 
 public class ReceptorPoint extends Point implements HasId {
-  private final int id;
+  private int id;
 
   /**
    * Initializes this ReceptorPoint with the given location.
@@ -31,6 +31,11 @@ public class ReceptorPoint extends Point implements HasId {
   public ReceptorPoint(final int id, final double x, final double y) {
     super(x, y);
 
+    this.id = id;
+  }
+
+  @Override
+  public void setId(int id) {
     this.id = id;
   }
 
