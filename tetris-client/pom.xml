@@ -16,26 +16,31 @@
       <groupId>nl.aerius</groupId>
       <artifactId>imaer-shared</artifactId>
       <version>${imaer.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>nl.aerius</groupId>
       <artifactId>gwt-client-common</artifactId>
       <type>gwt-lib</type>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>nl.aerius</groupId>
       <artifactId>gwt-client-vue</artifactId>
       <type>gwt-lib</type>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>nl.aerius</groupId>
       <artifactId>gwt-client-geo-ol3</artifactId>
       <type>gwt-lib</type>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>nl.aerius</groupId>
       <artifactId>gwt-client-common-json</artifactId>
       <type>gwt-lib</type>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
